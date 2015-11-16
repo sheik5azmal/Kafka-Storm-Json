@@ -16,19 +16,19 @@ public class JsonProducer
 	    private static int thermostat_ID;
 	    /** Constant: The type. **/
 	    private static int temp;
-	   private static String generateJson(int record)
+	   private static String generateJson()
 	   {
 		   Random rnd = new Random();
 	    	JSONObject tuple = new JSONObject();
-		    	thermostat_ID= rnd.nextInt(1000);
-		    	temp=rnd.nextInt(1000);
+		    	thermostat_ID= rnd.nextInt(10);
+		    	temp=rnd.nextInt(10);
 		    	tuple.put("thermostat_ID", thermostat_ID);
 		    	tuple.put("temp", temp);
 		       return tuple.toString();
 	   }
 	public static void main(String[] args) 
 	{
-        int record = Integer.parseInt(args[0]);
+       // int record = Integer.parseInt(args[0]);
         
         
         Properties props = new Properties();
@@ -42,7 +42,7 @@ public class JsonProducer
         Producer<String, String> producer = new Producer<String, String>(config);
         Random rnd = new Random();
     	JSONObject tuple = new JSONObject();
-    for(int i=1;i<=record;i++)
+    for(;;)
     {
     	KeyedMessage<String, String> data = new KeyedMessage<String, String>("testJson",generateJson(i));
         producer.send(data);
