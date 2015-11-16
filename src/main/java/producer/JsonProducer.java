@@ -9,26 +9,26 @@ import kafka.javaapi.producer.Producer;
 import kafka.producer.KeyedMessage;
 import kafka.producer.ProducerConfig;
 
-public class JsonProducer
+public class JsonProducer 
 {
 	 private static final Integer NUMBER_OF_FIELDS = 2;
 	    /** Constant: The name. **/
 	    private static int thermostat_ID;
 	    /** Constant: The type. **/
 	    private static int temp;
-	   private static String generateJson()
+	   private static String generateJson(int record)
 	   {
 		   Random rnd = new Random();
 	    	JSONObject tuple = new JSONObject();
-		    	thermostat_ID= rnd.nextInt(10);
-		    	temp=rnd.nextInt(10);
+		    	thermostat_ID= rnd.nextInt(100);
+		    	temp=rnd.nextInt(1000);
 		    	tuple.put("thermostat_ID", thermostat_ID);
 		    	tuple.put("temp", temp);
 		       return tuple.toString();
 	   }
 	public static void main(String[] args) 
 	{
-       // int record = Integer.parseInt(args[0]);
+        int record;
         
         
         Properties props = new Properties();
@@ -42,7 +42,7 @@ public class JsonProducer
         Producer<String, String> producer = new Producer<String, String>(config);
         Random rnd = new Random();
     	JSONObject tuple = new JSONObject();
-    for(;;)
+    for(int i=1;i<=record;i++)
     {
     	KeyedMessage<String, String> data = new KeyedMessage<String, String>("testJson",generateJson(i));
         producer.send(data);
