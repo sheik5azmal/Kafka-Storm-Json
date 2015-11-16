@@ -28,7 +28,7 @@ public class JsonProducer
 	   }
 	public static void main(String[] args) 
 	{
-        int record;
+        int record; 
         
         
         Properties props = new Properties();
