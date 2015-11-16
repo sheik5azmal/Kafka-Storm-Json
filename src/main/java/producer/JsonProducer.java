@@ -16,7 +16,7 @@ public class JsonProducer
 	    private static int thermostat_ID;
 	    /** Constant: The type. **/
 	    private static int temp;
-	   private static String generateJson(int record=50)
+	   private static String generateJson(int record)
 	   {
 		   Random rnd = new Random();
 	    	JSONObject tuple = new JSONObject();
@@ -28,7 +28,7 @@ public class JsonProducer
 	   }
 	public static void main(String[] args) 
 	{
-        int record = Integer.parseInt(args[0]);
+        int record = 50;
         
         
         Properties props = new Properties();
