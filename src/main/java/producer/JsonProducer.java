@@ -20,7 +20,7 @@ public class JsonProducer
 	   {
 		   Random rnd = new Random();
 	    	JSONObject tuple = new JSONObject();
-		    	thermostat_ID= rnd.nextInt(100);
+		    	thermostat_ID= rnd.nextInt(1000);
 		    	temp=rnd.nextInt(1000);
 		    	tuple.put("thermostat_ID", thermostat_ID);
 		    	tuple.put("temp", temp);
