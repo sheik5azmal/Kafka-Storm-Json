@@ -9,7 +9,7 @@ import kafka.javaapi.producer.Producer;
 import kafka.producer.KeyedMessage;
 import kafka.producer.ProducerConfig;
 
-public class JsonProducer 
+public class JsonProducer
 {
 	 private static final Integer NUMBER_OF_FIELDS = 2;
 	    /** Constant: The name. **/
