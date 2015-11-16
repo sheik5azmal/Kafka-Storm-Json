@@ -38,8 +38,7 @@ public class JsonProducer
         props.put("request.required.acks", "1");
  
         ProducerConfig config = new ProducerConfig(props);
- 
-        Producer<String, String> producer = new Producer<String, String>(config);
+   Producer<String, String> producer = new Producer<String, String>(config);
         Random rnd = new Random();
     	JSONObject tuple = new JSONObject();
     for(int i=1;i<=record;i++)
